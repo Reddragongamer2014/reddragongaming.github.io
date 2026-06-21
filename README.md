@@ -1,2 +1,412 @@
-# reddragongaming.github.io
-Gaming Hub
+<html>
+<head>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="logo192.png">
+    <meta name="theme-color" content="#ff0000">
+    
+    <title>Red Dragon Gaming Official</title>
+
+    <style>
+        body {
+            background-image: url('logo.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 25px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+            margin: 10px 0 15px 0;
+        }
+
+        .header-btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .youtube-btn {
+            background: #ff0000;
+            box-shadow: 0 0 15px #ff0000;
+        }
+
+        .youtube-btn:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #ff0000;
+        }
+
+        .discord-btn {
+            background: #5865F2;
+            box-shadow: 0 0 15px #5865F2;
+        }
+
+        .discord-btn:hover {
+            background: #4752C4;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #5865F2;
+        }
+
+        .brand-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .brand-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 8px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, #ff0000, transparent);
+            margin-bottom: 30px;
+        }
+
+        .tab-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 12px 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: #ff0000;
+            color: white;
+            border-color: #ff0000;
+            box-shadow: 0 0 15px #ff0000;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active-section {
+            display: block;
+        }
+
+        h3 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ff3333;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+        }
+
+        .info-banner {
+            background: rgba(255, 0, 0, 0.15);
+            border-left: 5px solid #ff0000;
+            padding: 15px 20px;
+            max-width: 1260px;
+            margin: 0 auto 25px auto;
+            border-radius: 4px;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(255,0,0,0.1);
+        }
+
+        .video-grid, .fix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .video-card, .fix-card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover, .fix-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff0000;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .video-title, .fix-title {
+            margin-top: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 1.4;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .fix-desc {
+            font-size: 0.85rem;
+            color: #cccccc;
+            margin-top: 5px;
+            line-height: 1.3;
+        }
+
+        .archive-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ff3333;
+            border: 1px solid #ff0000;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .archive-btn:hover {
+            background: #ff0000;
+            color: white;
+            box-shadow: 0 0 10px #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to my gaming hub</h1>
+        <div class="header-btn-container">
+            <button id="youtubeLinkBtn" class="action-btn youtube-btn">My YouTube Channel</button>
+            <a href="https://discord.com/invite/8QUfZMvg" target="_blank" class="action-btn discord-btn">Join My Discord Server for any questions</a>
+        </div>
+    </header>
+
+    <div class="brand-container">
+        <img src="logo.jpg" class="brand-logo" alt="logo">
+        <div class="brand-name">Red Dragon Gaming Official</div>
+    </div>
+    
+    <hr>
+
+    <!-- ANNOUNCEMENT BANNER -->
+    <div class="info-banner">
+        My dear users, I used to host free GTAs in my website but hosting free GTAs are illegal so, you should buy GTAs from the official website. But i provide Widescreen fix and Silentpatches for the GTAs
+    </div>
+
+    <!-- NAVIGATION TABS -->
+    <div class="tab-navigation">
+        <button class="tab-btn active" onclick="switchTab('videos-section', this)">My Videos HUB</button>
+        <button class="tab-btn" onclick="switchTab('emu-section', this)">Emulators HUB (PC & Android)</button>
+        <button class="tab-btn" onclick="switchTab('silentpatch-section', this)">SilentPatch HUB (PC)</button>
+        <button class="tab-btn" onclick="switchTab('widescreen-section', this)">Widescreen Fix HUB (PC)</button>
+    </div>
+
+    <!-- TAB 1: VIDEOS GALLERY -->
+    <div id="videos-section" class="tab-content active-section">
+        <div class="video-grid">
+            <div class="video-card"><video height="400" controls><source src="vid1.mp4" type="video/mp4"></video><div class="video-title">Advantages of petrol and diesel engines</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid2.mp4" type="video/mp4"></video><div class="video-title">Best seeds in Minecraft part 1</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid3.mp4" type="video/mp4"></video><div class="video-title">Best seeds in Minecraft part 2</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid4.mp4" type="video/mp4"></video><div class="video-title">Best seeds in Minecraft part 3</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid5.mp4" type="video/mp4"></video><div class="video-title">Best seeds in Minecraft part 4</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid6.mp4" type="video/mp4"></video><div class="video-title">Best seeds in Minecraft part 5</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid7.mp4" type="video/mp4"></video><div class="video-title">Best seeds in Minecraft part 6</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid8.mp4" type="video/mp4"></video><div class="video-title">Best seeds in Minecraft part 7</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid9.mp4" type="video/mp4"></video><div class="video-title">Controlling LED using HC-05</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid10.mp4" type="video/mp4"></video><div class="video-title">Difference between petrol and diesel engines</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid11.mp4" type="video/mp4"></video><div class="video-title">Difference between credit and debit cards</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid12.mp4" type="video/mp4"></video><div class="video-title">Parking distance sensor</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid13.mp4" type="video/mp4"></video><div class="video-title">Best Minecraft survival seed you have ever seen part 8</div></div>
+            <div class="video-card"><video height="400" controls><source src="vid14.mp4" type="video/mp4"></video><div class="video-title">Useful cheats for GTA vice city stories</div></div>
+        </div>
+    </div>
+
+    <!-- TAB 2: EMULATORS HUB -->
+    <div id="emu-section" class="tab-content">
+        <h3>Required Gaming Emulators</h3>
+        <div class="fix-grid">
+            <div class="fix-card">
+                <div class="fix-title">PPSSPP Emulator (PC)</div>
+                <div class="fix-desc">Required to emulate <b>GTA: Vice City Stories</b> and <b>GTA: Chinatown Wars</b>.</div>
+                <a href="https://ppsspp.org" target="_blank" class="archive-btn">Download</a>
+            </div>
+            <div class="fix-card">
+                <div class="fix-title">PPSSPP Emulator (Android)</div>
+                <div class="fix-desc">Required to emulate <b>GTA: Vice City Stories</b> and <b>GTA: Chinatown Wars</b> on phone/tablet setups.</div>
+                <button id="ppssppAndroidBtn" class="archive-btn">Download</button>
+            </div>
+
+            <div class="fix-card">
+                <div class="fix-title">PCSX2 Emulator (PC)</div>
+                <div class="fix-desc">Required to run <b>GTA: Liberty City Stories</b> with high-definition graphics.</div>
+                <a href="https://pcsx2.net" target="_blank" class="archive-btn">Download</a>
+            </div>
+            <div class="fix-card">
+                <div class="fix-title">mGBA Emulator (PC)</div>
+                <div class="fix-desc">The cleanest, most stable platform to emulate <b>GTA: Advance</b>.</div>
+                <a href="https://mgba.io" target="_blank" class="archive-btn">Download</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 3: SILENTPATCH HUB -->
+    <div id="silentpatch-section" class="tab-content">
+        <h3>SilentPatch Game Fixes</h3>
+        <div class="fix-grid">
+            <div class="fix-card">
+                <div class="fix-title">GTA III SilentPatch</div>
+                <div class="fix-desc">Fixes mouse tracking issues, script errors, and frame timing bugs for GTA 3.</div>
+                <a href="https://silentsblog.com/mods/gta-iii/" target="_blank" class="archive-btn">Download Patch</a>
+            </div>
+            <div class="fix-card">
+                <div class="fix-title">GTA Vice City SilentPatch</div>
+                <div class="fix-desc">Restores missing textures and fixes system crashing on modern Windows builds.</div>
+                <a href="https://silentsblog.com/mods/gta-vc/" target="_blank" class="archive-btn">Download Patch</a>
+            </div>
+            <div class="fix-card">
+                <div class="fix-title">GTA San Andreas SilentPatch</div>
+                <div class="fix-desc">Fixes severe stealth breaks, broken lighting arrays, and interface sizing problems.</div>
+                <a href="https://silentsblog.com/mods/gta-sa/" target="_blank" class="archive-btn">Download Patch</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 4: WIDESCREEN FIX HUB -->
+    <div id="widescreen-section" class="tab-content">
+        <h3>Aspect Ratio Corrections</h3>
+        <div class="fix-grid">
+            <div class="fix-card">
+                <div class="fix-title">GTA III Widescreen Fix</div>
+                <div class="fix-desc">Direct link to remove UI stretching on modern widescreen monitors.</div>
+                <a href="https://fusionfix.io/wfp?#gta3" target="_blank" class="archive-btn">Download Fix</a>
+            </div>
+            <div class="fix-card">
+                <div class="fix-title">GTA Vice City Widescreen Fix</div>
+                <div class="fix-desc">Restores the HUD and game display to accurate 16:9/4K proportions.</div>
+                <a href="https://fusionfix.io/wfp?#gtavc"target="_blank" class="archive-btn">Download Fix</a>
+            </div>
+            <div class="fix-card">
+                <div class="fix-title">GTA San Andreas Widescreen Fix</div>
+                <div class="fix-desc">Fixes scaling and custom modern monitor resolutions for San Andreas.</div>
+                <a href="https://fusionfix.io/wfp?#gtasa" target="_blank" class="archive-btn">Download Fix</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(sectionId, clickedButton) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active-section'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(sectionId).classList.add('active-section');
+            clickedButton.classList.add('active');
+
+            if(sectionId !== 'videos-section') {
+                videos.forEach(v => v.pause());
+            }
+        }
+
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.addEventListener('play', () => {
+                videos.forEach(otherVideo => {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+                });
+            });
+        });
+
+        document.getElementById('youtubeLinkBtn').addEventListener('click', function() {
+            const webUrl = "https://www.youtube.com/@reddragongamingOfficial"; 
+            const isAndroid = /Android/i.test(navigator.userAgent);
+
+            if (isAndroid) {
+                window.location.href = "intent://www.youtube.com/@reddragongamingOfficial#Intent;package=com.google.android.youtube;scheme=https;end";
+            } else {
+                window.open(webUrl, '_blank');
+            }
+        });
+
+        document.getElementById('ppssppAndroidBtn').addEventListener('click', function() {
+            const playStoreUrl = "https://play.google.com/store/apps/details?id=org.ppsspp.ppsspp";
+            const isAndroid = /Android/i.test(navigator.userAgent);
+
+            if (isAndroid) {
+                window.location.href = "market://details?id=org.ppsspp.ppsspp";
+                setTimeout(function() {
+                    window.open(playStoreUrl, '_blank');
+                }, 500);
+            } else {
+                window.open(playStoreUrl, '_blank');
+            }
+        });
+    </script>
+
+</body>
+</html>
